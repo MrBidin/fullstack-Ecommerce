@@ -1,4 +1,4 @@
-import {addToCart, removeFromCart } from "../actions/cartAction";
+import {addToCart, removeFromCart } from "../actions/cartActions";
 import { useSelector, useDispatch } from 'react-redux';
 import {Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap';
 import Message from '../components/Message';
@@ -26,7 +26,7 @@ const CartScreen = () => {
   } ;
 
   const checkoutHandler = () => {
-    navigate('/login?redirect=shipping')
+    navigate('/shipping')
   }
 
   return (

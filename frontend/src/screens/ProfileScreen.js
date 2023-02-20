@@ -5,6 +5,7 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 const ProfileScreen = () => {
 
@@ -33,7 +34,8 @@ const ProfileScreen = () => {
     if(!userInfo){
       navigate('/login') 
     } else {
-      if(!user.name) {
+      if(!user || !user.name) {
+        dispatch({type: USER_UPDATE_PROFILE_RESET})
         dispatch(getUserDetails('profile')) 
       } else {
         setName(user.name);
