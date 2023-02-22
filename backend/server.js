@@ -13,15 +13,19 @@ const app = express();
 
 connectDB();
 
-app.use(express.json())
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send("API is running!")
+});
 
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/orders', orderRoutes);
 
-app.get('/', (req, res) => {
-  res.send("API is running!")
-});
+app.get('/api/v1/config/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID);
+})
 
 app.use(notFound);
 
