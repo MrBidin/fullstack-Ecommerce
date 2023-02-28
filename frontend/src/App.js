@@ -12,6 +12,9 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
+import ProductListScreen from "./screens/ProductListScreen";
+import ProductEditScreen from "./screens/ProductEditScreen";
+import OrderListScreen from "./screens/OrderListScreen";
 import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -34,6 +37,13 @@ function App() {
           <Route path='/order/:id' element={<OrderScreen />} />
           <Route path='/admin/userlist' element={<UserListScreen />} />
           <Route path='/admin/user/:id/edit' element={<UserEditScreen />} />
+          <Route path='/admin/product/:id/edit' element={<ProductEditScreen />} />
+          <Route path='/admin/productlist' element={<ProductListScreen />} />
+          <Route path='/admin/orderlist' element={<OrderListScreen />} />
+          <Route path='/search/:keyword' element={<Homescreen />} />
+          <Route path='/page/:pageNumber' element={<Homescreen />} />
+          <Route path='/search/:keyword/page/:pageNumber' element={<Homescreen />} />
+          <Route path='/admin/productlist/:pageNumber' element={<ProductListScreen />} />
         </Routes>
       </Container>
     </main>
