@@ -2,6 +2,7 @@
 import {Row, Col} from 'react-bootstrap';
 import Product from '../components/Product';
 import Paginate from '../components/Paginate';
+import ProductCarousel from '../components/ProductCarousel';
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import {listProducts} from '../actions/productActions';
@@ -20,6 +21,7 @@ const Homescreen = () => {
   }, [dispatch, keyword, pageNumber])
   return (
     <>
+    {!keyword && <ProductCarousel />}
     <h1>The latest Products</h1>
     { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : 
     <>
